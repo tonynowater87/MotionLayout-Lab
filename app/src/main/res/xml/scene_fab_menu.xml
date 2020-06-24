@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:constraintSetEnd="@layout/activity_fab_menu_motion_scene_2"
+        app:constraintSetStart="@layout/activity_fab_menu_motion_scene_1"
+        app:duration="@android:integer/config_shortAnimTime"
+        app:motionInterpolator="easeInOut">
+
+        <OnClick
+            app:clickAction="toggle"
+            app:targetId="@+id/fab_menu" />
+
+    </Transition>
+
+</MotionScene>
