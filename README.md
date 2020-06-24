@@ -18,6 +18,8 @@ dependencies {
  ```xml
  <androidx.constraintlayout.motion.widget.MotionLayout 
     app:layoutDescription="@xml/MotionScene.xml">
+    ...
+</androidx.constraintlayout.motion.widget.MotionLayout>
  ```
  
 ## Tips
@@ -34,7 +36,10 @@ dependencies {
   ###### 可看目前的FPS, Progress, State, Path
 
 ```xml
-app:motionDebug="SHOW_ALL" 
+<androidx.constraintlayout.motion.widget.MotionLayout 
+    app:motionDebug="SHOW_ALL">
+...
+</androidx.constraintlayout.motion.widget.MotionLayout>
 ```
 
 ## Examples
@@ -43,139 +48,9 @@ app:motionDebug="SHOW_ALL"
 
 <img src="https://i.imgur.com/0IggcmD.gif" width="200">
 
-```xml
-<!-- UI XML -->
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layoutDescription="@xml/scene_stick_view_below_toolbar"
-    tools:context=".MainActivity">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:background="@color/colorPrimaryDark"
-        android:elevation="4dp"
-        app:title="Stick item below toolbar"
-        app:titleTextColor="@android:color/black" />
-
-    <FrameLayout
-        android:id="@+id/view_pager_mock"
-        android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:background="@android:color/holo_orange_dark"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/ic_launcher_foreground" />
-    </FrameLayout>
-
-    <View
-        android:id="@+id/view_stick_top_mock"
-        android:layout_width="0dp"
-        android:layout_height="80dp"
-        android:background="@android:color/holo_green_light"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_pager_mock" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view_stick_top_mock" />
-
-</androidx.constraintlayout.motion.widget.MotionLayout>
-```
-
-```xml
-<!-- MotionScene -->
-<?xml version="1.0" encoding="utf-8"?>
-<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:motion="http://schemas.android.com/apk/res-auto">
-
-    <Transition
-        motion:constraintSetEnd="@id/end"
-        motion:constraintSetStart="@id/start"
-        motion:motionInterpolator="easeInOut">
-
-        <OnSwipe
-            motion:dragDirection="dragUp"
-            motion:touchAnchorId="@id/rv" />
-
-    </Transition>
-
-    <ConstraintSet android:id="@+id/start">
-
-        <Constraint
-            android:id="@+id/view_pager_mock"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <Constraint
-            android:id="@+id/view_stick_top_mock"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/view_pager_mock" />
-
-        <Constraint android:id="@+id/toolbar">
-            <CustomAttribute
-                motion:attributeName="titleTextColor"
-                motion:customColorValue="@android:color/black" />
-
-        </Constraint>
-
-    </ConstraintSet>
-
-    <ConstraintSet android:id="@+id/end">
-
-        <Constraint
-            android:id="@+id/view_pager_mock"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintBottom_toBottomOf="@id/toolbar"/>
-
-        <Constraint
-            android:id="@+id/view_stick_top_mock"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@+id/toolbar" />
-
-        <Constraint android:id="@+id/toolbar">
-            <CustomAttribute
-                motion:attributeName="titleTextColor"
-                motion:customColorValue="@android:color/white" />
-        </Constraint>
-
-    </ConstraintSet>
-
-</MotionScene>
-```
-
 2. Float action button menu
 
 <img src="https://i.imgur.com/AYTzVqh.gif" width="200">
 
 ## Reference
-* [how-to-perfect-android-animations-using-motionlayout](https://medium.com/@gilgoldzweig/how-to-perfect-android-animations-using-motionlayout-286cfa0f4f13)* [how-to-perfect-android-animations-using-motionlayout](https://medium.com/@gilgoldzweig/how-to-perfect-android-animations-using-motionlayout-286cfa0f4f13)
-* [official document](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
+* [how-to-perfect-android-animations-using-motionlayout](https://medium.com/@gilgoldzweig/how-to-perfect-android-animations-using-motionlayout-286cfa0f4f13)
