@@ -54,3 +54,4 @@ dependencies {
 
 ## Reference
 * [how-to-perfect-android-animations-using-motionlayout](https://medium.com/@gilgoldzweig/how-to-perfect-android-animations-using-motionlayout-286cfa0f4f13)
+* [official document](https://developer.android.com/reference/androidx/constraintlayout/motion/widget/MotionLayout)
